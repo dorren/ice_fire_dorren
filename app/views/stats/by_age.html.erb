@@ -1,2 +1,45 @@
-<h1>Stats#by_age</h1>
-<p>Find me in app/views/stats/by_age.html.erb</p>
+<% if @selected %>
+  <h2>Born between <%= year_str(@min) %> and <%= year_str(@max) %></h2>
+  <p><%= @selected.size %> characters</p>
+  <table class="Age">
+    <% @selected.each do |char| %>
+      <tr>
+        <td class="Character">
+          <%= char.name %>
+        </td>
+        <td class="Birth Year">
+          <%= year_str(char.birth_year) %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>
+
+<h1>By Age</h1>
+
+<table class="Age">
+  <tr class="Row Header">
+    <td><%= link_to "Character",  stats_by_age_path(order: :name) %>    </td>
+    <td><%= link_to "Birth Year", stats_by_age_path(order: :birth_year) %>  </td>
+    <td>Actions  </td>
+  </tr>
+  <% @chars.each do |char| %>
+    <tr>
+      <td class="Character">
+        <%= char.name %>
+      </td>
+      <td class="Birth Year">
+        <%= year_str(char.birth_year) %>
+      </td>
+      <td class="Action">
+        <%= form_tag(stats_by_age_path) do %>
+          born within
+          <%= hidden_field_tag(:char_id, char.id) %>
+          <%= text_field_tag("diff", "", size: 2) %>
+          years.
+          <input type="submit"/>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>

@@ -20,3 +20,14 @@
     font-weight: 700;
   }
 }
+
+table.Age {
+  tr.Header td {
+    text-align: center;
+    font-weight: 700;
+  }
+  td {
+    padding: 3px;
+    border-bottom: 1px solid #CCC;
+  }
+}

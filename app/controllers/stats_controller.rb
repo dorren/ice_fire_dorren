@@ -1,4 +1,7 @@
 class StatsController < ApplicationController
+  def index
+  end
+
   def birth_year
     @hash = Character.all.group(:birth_year).count
   end
@@ -11,5 +14,18 @@ class StatsController < ApplicationController
   end
 
   def by_age
+    if params[:char_id]
+      char = Character.find(params[:char_id])
+      diff = params[:diff].to_i
+      @min = char.birth_year - diff
+      @max = char.birth_year + diff
+      arel = Character.arel_table
+      @selected = Character.where(arel[:birth_year].lt(@max).and(
+                      arel[:birth_year].gt(@min)))
+    end
+
+    @chars = Character.where.not(birth_year: nil)
+              .order(params[:order] || :name)
+
   end
 end
