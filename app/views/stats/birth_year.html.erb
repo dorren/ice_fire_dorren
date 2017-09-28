@@ -1,0 +1,18 @@
+<h1>By Birth Year</h1>
+
+<div class="Stats BirthYear">
+  <div class="Row Header">
+    <div>Year    </div>
+    <div>Count   </div>
+  </div>
+  <% @hash.each do |year, count| %>
+    <div class="Row">
+      <div class="Year">
+        <%= year_str(year) %>
+      </div>
+      <div class="Count">
+        <%= count %>
+      </div>
+    </div>
+<% end %>
+</div>
