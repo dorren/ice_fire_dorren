@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get '/' => 'home#index'
+
   get 'stats/index'
 
   get 'stats/birth_year'

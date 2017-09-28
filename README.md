@@ -6,22 +6,12 @@ and displaying how many people were born within x years of another character
 in the database. Use any technology or approach you want.
 
 
-Things you may want to cover:
 
-* Ruby version
+* setup
+```
+rake db:create
+rake db:migrate
+rake data:import_all
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+rails s
+```
