@@ -4,6 +4,10 @@ class StatsController < ApplicationController
   end
 
   def house
+    @arr = Membership.joins(:house)
+             .select("count(memberships.id) as count, house_id, houses.*")
+             .group('houses.id')
+             .order(params[:order] || 'houses.name')
   end
 
   def by_age
