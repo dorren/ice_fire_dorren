@@ -16,8 +16,7 @@
         <%= year_str(char.birth_year) %>
       </td>
       <td class="Action">
-        <%= link_to "actions", "javascript:void(0)", class: :more %>
-        <div class="hidden">
+        <div class="">
           <%= form_tag(stats_within_year_path, remote: true) do %>
             born within
             <%= hidden_field_tag(:char_id, char.id) %>
