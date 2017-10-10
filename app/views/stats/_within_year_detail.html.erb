@@ -1,6 +1,6 @@
 <div class="WithYearOutput">
   <p class="close">X</p>
-  <p class="heading"><%= @selected.size %> characters Born between
+  <p class="heading"><%= @selected.size %> characters born between
     <%= year_str(@min) %> and <%= year_str(@max) %></p>
 
   <table class="Age">
@@ -17,7 +17,7 @@
   </table>
 </div>
 
-<%= javascript_tag defer: 'defer' do -%>
+<%= javascript_tag  do -%>
   $( document ).ready(function() {
     $('.WithYearOutput .close').on("click", function(event){
       $(event.target).parent().parent().toggle();
