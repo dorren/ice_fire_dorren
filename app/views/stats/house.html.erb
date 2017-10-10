@@ -6,7 +6,7 @@
     <div><%= link_to "Member count", stats_house_path(order: :count) %>  </div>
   </div>
   <% @arr.each do |membership| %>
-    <div class="Row">
+    <div class="Row <%= cycle("odd", "even") -%>">
       <div class="House">
         <%= membership.name %>
       </div>

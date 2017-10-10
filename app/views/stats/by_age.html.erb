@@ -1,6 +1,6 @@
 <h1>By Age</h1>
 
-<table class="Age">
+<table class="Age" cellspacing="0">
   <tr class="Row Header">
     <td><%= link_to "Character",  stats_by_age_path(order: :name) %>    </td>
     <td><%= link_to "Birth Year", stats_by_age_path(order: :birth_year) %>  </td>
@@ -8,7 +8,7 @@
     <td></td>
   </tr>
   <% @chars.each do |char| %>
-    <tr class="Char">
+    <tr class="Char <%= cycle("odd", "even") -%>">
       <td class="Character">
         <%= char.name %>
       </td>
