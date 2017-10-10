@@ -1,0 +1,26 @@
+<div class="WithYearOutput">
+  <p class="close">X</p>
+  <p class="heading"><%= @selected.size %> characters Born between
+    <%= year_str(@min) %> and <%= year_str(@max) %></p>
+
+  <table class="Age">
+    <% @selected.each do |char| %>
+      <tr>
+        <td class="Character">
+          <%= char.name %>
+        </td>
+        <td class="Birth Year">
+          <%= year_str(char.birth_year) %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+
+<%= javascript_tag defer: 'defer' do -%>
+  $( document ).ready(function() {
+    $('.WithYearOutput .close').on("click", function(event){
+      $(event.target).parent().parent().toggle();
+    });
+  });
+<% end -%>

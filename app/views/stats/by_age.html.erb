@@ -1,20 +1,3 @@
-<% if @selected %>
-  <h2>Born between <%= year_str(@min) %> and <%= year_str(@max) %></h2>
-  <p><%= @selected.size %> characters</p>
-  <table class="Age">
-    <% @selected.each do |char| %>
-      <tr>
-        <td class="Character">
-          <%= char.name %>
-        </td>
-        <td class="Birth Year">
-          <%= year_str(char.birth_year) %>
-        </td>
-      </tr>
-    <% end %>
-  </table>
-<% end %>
-
 <h1>By Age</h1>
 
 <table class="Age">
@@ -22,9 +5,10 @@
     <td><%= link_to "Character",  stats_by_age_path(order: :name) %>    </td>
     <td><%= link_to "Birth Year", stats_by_age_path(order: :birth_year) %>  </td>
     <td>Actions  </td>
+    <td></td>
   </tr>
   <% @chars.each do |char| %>
-    <tr>
+    <tr class="Char">
       <td class="Character">
         <%= char.name %>
       </td>
@@ -32,7 +16,7 @@
         <%= year_str(char.birth_year) %>
       </td>
       <td class="Action">
-        <%= form_tag(stats_by_age_path) do %>
+        <%= form_tag(stats_within_year_path, remote: true) do %>
           born within
           <%= hidden_field_tag(:char_id, char.id) %>
           <%= text_field_tag("diff", "", size: 2) %>
@@ -40,6 +24,12 @@
           <input type="submit"/>
         <% end %>
       </td>
+      <td>
+
+      </td>
+    </tr>
+    <tr >
+      <td class="hidden" colspan="4" id="char-<%= char.id%>-output"></td>
     </tr>
   <% end %>
 </table>

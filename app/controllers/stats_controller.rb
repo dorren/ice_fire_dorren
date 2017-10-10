@@ -14,18 +14,17 @@ class StatsController < ApplicationController
   end
 
   def by_age
-    if params[:char_id]
-      char = Character.find(params[:char_id])
-      diff = params[:diff].to_i
-      @min = char.birth_year - diff
-      @max = char.birth_year + diff
-      arel = Character.arel_table
-      @selected = Character.where(arel[:birth_year].lteq(@max).and(
-                      arel[:birth_year].gteq(@min)))
-    end
-
     @chars = Character.where.not(birth_year: nil)
               .order(params[:order] || :name)
+  end
 
+  def within_year
+    char = Character.find(params[:char_id])
+    diff = params[:diff].to_i
+    @min = char.birth_year - diff
+    @max = char.birth_year + diff
+    arel = Character.arel_table
+    @selected = Character.where(arel[:birth_year].lteq(@max).and(
+                    arel[:birth_year].gteq(@min)))
   end
 end

@@ -25,3 +25,15 @@ body {
   padding: 10px;
   font-family: arial;
 }
+
+.TopMenu {
+  list-style-type: none;
+  margin: 0;
+  margin-bottom: 1em;
+  padding: 0;
+  overflow: hidden;
+}
+.TopMenu li{
+  float: left;
+  padding: 3px 10px;
+}

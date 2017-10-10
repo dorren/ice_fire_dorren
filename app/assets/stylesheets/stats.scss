@@ -23,13 +23,31 @@
 
 table.Age {
   width: 600px;
-  
+
   tr.Header td {
     text-align: center;
     font-weight: 700;
   }
+
+  tr.Char td{
+    border-bottom: 1px solid #CCC;
+  }
+  td.hidden {
+    display: none;
+  }
   td {
     padding: 3px;
-    border-bottom: 1px solid #CCC;
+  }
+
+}
+
+.WithYearOutput {
+  margin: 1em;
+  .close {
+    float: right;
+  }
+  .heading {
+    clear: both;
+    font-weight: 700;
   }
 }
