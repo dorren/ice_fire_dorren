@@ -5,6 +5,7 @@
 .Stats {
   width: 450px;
   border: 1px solid #777;
+  margin: auto;
 
   .Row {
     display: flex;
@@ -23,7 +24,8 @@
 
 table.Age {
   width: 600px;
-
+  margin: auto;
+  
   tr.Header td {
     text-align: center;
     font-weight: 700;

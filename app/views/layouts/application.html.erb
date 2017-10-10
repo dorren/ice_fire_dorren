@@ -9,11 +9,17 @@
   </head>
 
   <body>
-    <ul class="TopMenu">
-      <li><%= link_to "By birth year", stats_birth_year_path %></li>
-      <li><%= link_to "House",         stats_house_path %>     </li>
-      <li><%= link_to "By Age",        stats_by_age_path %>    </li>
-    </ul>
-    <%= yield %>
+    <div class="Main">
+      <div class="Top">
+        <ul class="TopMenu">
+          <li><%= link_to "By birth year", stats_birth_year_path %></li>
+          <li><%= link_to "House",         stats_house_path %>     </li>
+          <li><%= link_to "By Age",        stats_by_age_path %>    </li>
+        </ul>
+      </div>
+      <div class="Content">
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>
